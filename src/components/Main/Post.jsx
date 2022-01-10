@@ -12,7 +12,7 @@ function Post(props) {
 
             <div className="likes-section">
                 <span className="likes">{props.post.likes} likes</span>
-                <button className="like-button">♥</button>
+                <button className="like-button" onClick={() => props.increaseLikes(props.post)}>♥</button>
             </div>
 
             <Comments post={props.post} />
