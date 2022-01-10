@@ -1,6 +1,7 @@
 import Comments from "./Comments"
 import './CSS/Post.css'
 
+
 function Post(props) {
     return (
 
@@ -16,6 +17,32 @@ function Post(props) {
             </div>
 
             <Comments post={props.post} removeComment={props.removeComment} />
+
+
+
+            <form className="comment-form" onSubmit={function (event) {
+                event.preventDefault()
+                const comment = event.target.comment.value
+                props.createComment(comment, props.post.id).then(function (comment) {
+                    const updateComments = ([...props.posts])
+                    props.post.comments.push(comment)
+                    props.setPost(updateComments)
+                })
+                event.target.reset()
+
+
+            }} >
+
+                <input
+                    className="comment-input"
+                    type="text"
+                    name="comment"
+                    placeholder="Add a comment..."
+                />
+
+                <button className="comment-button" type="submit">Post</button>
+
+            </form>
 
         </article>
     )

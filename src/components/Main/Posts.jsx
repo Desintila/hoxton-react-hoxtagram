@@ -9,7 +9,7 @@ function Posts(props) {
             {
                 props.posts.map(post => (
 
-                    <Post post={post} key={post.title} increaseLikes={props.increaseLikes} removeComment={props.removeComment} />
+                    <Post post={post} posts={props.posts} key={post.title} increaseLikes={props.increaseLikes} removeComment={props.removeComment} setPost={props.setPost} createComment={props.createComment} />
 
                 ))
             }

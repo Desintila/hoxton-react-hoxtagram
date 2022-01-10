@@ -47,13 +47,27 @@ function App() {
   }
 
 
+  function createComment(content, imageId) {
+    return fetch('http://localhost:3000/comments', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        content: content,
+        imageId: imageId
+      })
+    }).then(resp => resp.json())
+  }
+
+
 
   return (
     <div className="App">
 
       <Logo />
 
-      <Posts posts={posts} increaseLikes={increaseLikes} removeComment={removeComment} />
+      <Posts posts={posts} increaseLikes={increaseLikes} removeComment={removeComment} createComment={createComment} setPost={setPost} />
 
     </div>
   )
