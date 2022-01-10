@@ -15,7 +15,7 @@ function Post(props) {
                 <button className="like-button" onClick={() => props.increaseLikes(props.post)}>♥</button>
             </div>
 
-            <Comments post={props.post} />
+            <Comments post={props.post} removeComment={props.removeComment} />
 
         </article>
     )
