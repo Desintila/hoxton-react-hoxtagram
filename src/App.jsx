@@ -61,13 +61,26 @@ function App() {
   }
 
 
+  function createPost(title, image) {
+    return fetch('http://localhost:3000/images', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: title,
+        image: image,
+        likes: 0
+      })
+    }).then(resp => resp.json())
+  }
 
   return (
     <div className="App">
 
       <Logo />
 
-      <Posts posts={posts} increaseLikes={increaseLikes} removeComment={removeComment} createComment={createComment} setPost={setPost} />
+      <Posts posts={posts} increaseLikes={increaseLikes} removeComment={removeComment} createComment={createComment} setPost={setPost} createPost={createPost} />
 
     </div>
   )

@@ -4,7 +4,6 @@ import './CSS/Post.css'
 
 function Post(props) {
     return (
-
         <article className="image-card">
 
             <h2 className="title">{props.post.title}</h2>
