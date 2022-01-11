@@ -5,7 +5,7 @@ import './CSS/Post.css'
 function Post(props) {
     return (
         <article className="image-card">
-
+            <button onClick={() => props.removePost(props.post)}>X</button>
             <h2 className="title">{props.post.title}</h2>
 
             <img src={props.post.image} className="image" />

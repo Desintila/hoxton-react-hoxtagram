@@ -75,12 +75,28 @@ function App() {
     }).then(resp => resp.json())
   }
 
+
+  function deletePost(id) {
+    return fetch(`http://localhost:3000/images/${id}`, {
+      method: 'DELETE'
+    })
+  }
+
+
+  function removePost(post) {
+    let update = [...posts]
+    deletePost(post.id)
+    update = update.filter(Post => Post.id !== post.id)
+    setPost(update)
+
+  }
+
   return (
     <div className="App">
 
       <Logo />
 
-      <Posts posts={posts} increaseLikes={increaseLikes} removeComment={removeComment} createComment={createComment} setPost={setPost} createPost={createPost} />
+      <Posts posts={posts} increaseLikes={increaseLikes} removeComment={removeComment} createComment={createComment} setPost={setPost} createPost={createPost} removePost={removePost} />
 
     </div>
   )
